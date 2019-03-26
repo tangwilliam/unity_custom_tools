@@ -1,0 +1,14 @@
+.vs
+.vscode
+**/.DS_Store
+/Library
+/Build
+/build
+/obj
+/Temp
+*.DS_Store
+*.csproj
+*.sln
+*.userprefs
+exr2png.meta
+test.meta
