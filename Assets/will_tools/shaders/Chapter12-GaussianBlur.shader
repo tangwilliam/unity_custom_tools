@@ -6,6 +6,14 @@ Shader "Unity Shaders Book/Chapter 12/Gaussian Blur" {
 		_BlurSize ("Blur Size", Float) = 1.0
 	}
 	SubShader {
+
+		Stencil{
+			Ref 2
+			ReadMask 2
+			Comp Equal
+		}
+
+
 		CGINCLUDE
 		
 		#include "UnityCG.cginc"

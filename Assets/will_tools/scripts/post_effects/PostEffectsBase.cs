@@ -30,7 +30,9 @@ public class PostEffectsBase : MonoBehaviour {
 	}
 	
 	protected void Start() {
-		CheckResources();
+
+        Debug.Log("Post Effects Base start");
+        CheckResources();
 	}
 
 	// Called when need to create the material used by this effect
