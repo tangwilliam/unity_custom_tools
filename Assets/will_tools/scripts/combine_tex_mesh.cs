@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,11 +23,14 @@ public class CombineTexMesh : MonoBehaviour
 
     // 合并mesh和贴图
     // 使用要求: 1. mesh的材质使用相同的shader，且都只有mainTex可用 2. 各贴图需设置为 Reader/Write Enabled 3. 顶部要求的路径要填好
+#if UNITY_EDITOR
     [MenuItem("Will Tools/Combine Meshes")]
+
     private static void CombineMeshesAndTextures()
     {
 
         CombineMesh(SceneManager.GetSceneByName(sceneName));
+
     }
 
     private static void CombineMesh(Scene scene)
@@ -142,7 +147,7 @@ public class CombineTexMesh : MonoBehaviour
     }
 
 
-
+    #endif
 
 
 }
