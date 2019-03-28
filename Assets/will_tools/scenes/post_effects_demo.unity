@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 514691364}
   - component: {fileID: 514691369}
   - component: {fileID: 514691370}
+  - component: {fileID: 514691371}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -218,7 +219,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1278214985}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 514691363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebbb177dfbaf6264aa543444358012d3, type: 3}
   m_Name: 
@@ -271,9 +272,21 @@ MonoBehaviour:
   gaussianBlurShader: {fileID: 4800000, guid: 00629d7477c78d348aceb0c71a72f7e8, type: 3}
   gaussianBlurMaterial: {fileID: 2100000, guid: 7419a657c17f0ef4891f8de4e31bf98d,
     type: 2}
-  iterations: 3
-  blurSpread: 0.6
-  downSample: 2
+--- !u!114 &514691371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514691363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bb1a9b33d894c47b5ef21c51b3e5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  briSatConShader: {fileID: 4800000, guid: d15119f23d6ad4a9898f7da5c3b02bac, type: 3}
+  brightness: 0.13
+  saturation: 0.98
+  contrast: 1
 --- !u!1001 &1120848379
 Prefab:
   m_ObjectHideFlags: 0
@@ -316,33 +329,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c48e0c6ba0fb9448940355ac461bfb7, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &1278214985
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 897
-  m_Height: 480
-  m_AntiAliasing: 1
-  m_DepthFormat: 2
-  m_ColorFormat: 2
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1281157793
 Prefab:
   m_ObjectHideFlags: 0
