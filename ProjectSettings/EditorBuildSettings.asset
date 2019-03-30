@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/will_tools/scenes/post_effects_demo.unity
     guid: 652976a17014b49a1bd41e62ace95104
+  - enabled: 1
+    path: Assets/will_tools/scenes/post_effects_mobile_test.unity
+    guid: a0e37825361f2c34680b2e2937a2fabb
