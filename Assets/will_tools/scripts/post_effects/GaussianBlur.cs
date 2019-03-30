@@ -63,7 +63,7 @@ public class GaussianBlur : PostEffectsBase {
 
 	/// 3rd edition: use iterations for larger blur
    
-    [ImageEffectOpaque]
+    //[ImageEffectOpaque]
 	void OnRenderImage (RenderTexture src, RenderTexture dest) {
 		if (material != null) {
 			int rtW = src.width/downSample;

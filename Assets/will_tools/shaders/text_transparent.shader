@@ -2,23 +2,26 @@
 {
 	Properties
 	{
+		_Color("Color", Color) = (1.0,1.0,1.0,1.0)
 		_MainTex ("Texture", 2D) = "white" {}
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="Transparent" }
+		Tags { "RenderType"="Transparent" "Queue"="Transparent"  }
 		LOD 100
 
 		Blend SrcAlpha OneMinusSrcAlpha
 
-		Stencil{
+		
+
+		Pass
+		{
+			Stencil{
 			Ref 2
 			Comp Always
 			Pass replace
 		}
 
-		Pass
-		{
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -42,6 +45,7 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			fixed4 _Color;
 			
 			v2f vert (appdata v)
 			{
@@ -54,8 +58,13 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
+
 				// sample the texture
 				fixed4 col = tex2D(_MainTex, i.uv);
+				col.rgb = col.rgb * _Color.rgb;
+
+				clip(col.a - 0.1);
+
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;

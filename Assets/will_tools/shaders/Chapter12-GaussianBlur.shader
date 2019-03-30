@@ -10,7 +10,7 @@ Shader "Unity Shaders Book/Chapter 12/Gaussian Blur" {
 		Stencil{
 			Ref 2
 			ReadMask 2
-			Comp Equal
+			Comp NotEqual
 		}
 
 

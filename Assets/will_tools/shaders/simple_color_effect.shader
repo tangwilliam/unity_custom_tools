@@ -7,10 +7,18 @@
 	SubShader
 	{
 		// No culling or depth
-		Cull Off ZWrite Off ZTest Always
+		Cull Off  ZWrite Off ZTest Always
 
+		
 		Pass
 		{
+			Stencil{
+
+		Ref 2
+		// ReadMask 2
+		Comp NotEqual
+	}
+
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag

@@ -141,6 +141,7 @@ PlayerSettings:
   targetPixelDensity: 0
   resolutionScalingMode: 0
   applicationIdentifier:
+    Android: com.will.PostEffectsDemo
     iOS: com.will.PostEffectsDemo
   buildNumber: {}
   AndroidBundleVersionCode: 1
