@@ -63,7 +63,7 @@
 				fixed4 col = tex2D(_MainTex, i.uv);
 				col.rgb = col.rgb * _Color.rgb;
 
-				clip(col.a - 0.1);
+				clip(col.a - 0.5);
 
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
