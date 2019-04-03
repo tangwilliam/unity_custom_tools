@@ -20,7 +20,7 @@
 			Ref 2
 			Comp Always
 			Pass replace
-		}
+			}
 
 			CGPROGRAM
 			#pragma vertex vert

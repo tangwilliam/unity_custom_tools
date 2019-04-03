@@ -8,6 +8,8 @@ Shader "Unity Shaders Book/Chapter 12/Bloom" {
 		_BlurSize ("Blur Size", Float) = 1.0
 	}
 	SubShader {
+			
+
 		CGINCLUDE
 		
 		#include "UnityCG.cginc"
@@ -73,6 +75,11 @@ Shader "Unity Shaders Book/Chapter 12/Bloom" {
 		ZTest Always Cull Off ZWrite Off
 		
 		Pass {  
+			Stencil{
+				Ref 2
+				Comp NotEqual
+			}
+
 			CGPROGRAM  
 			#pragma vertex vertExtractBright  
 			#pragma fragment fragExtractBright  
@@ -85,6 +92,10 @@ Shader "Unity Shaders Book/Chapter 12/Bloom" {
 		UsePass "Unity Shaders Book/Chapter 12/Gaussian Blur/GAUSSIAN_BLUR_HORIZONTAL"
 		
 		Pass {  
+			Stencil{
+			Ref 2
+			Comp NotEqual
+		}
 			CGPROGRAM  
 			#pragma vertex vertBloom  
 			#pragma fragment fragBloom  

@@ -1,25 +1,17 @@
-﻿Shader "Will/simple_color_effect"
+﻿Shader "Will/overylay_rendertextures"
 {
 	Properties
 	{
-		_MainTex ("Texture", 2D) = "white" {}
+		_MainTex ("Texture", 2D) = "black" {}
+		_SecondRT("Second RT",2D) = "black"{}
 	}
 	SubShader
 	{
-		Blend OneMinusDstColor Zero
-
 		// No culling or depth
-		Cull Off  ZWrite Off ZTest Always
+		Cull Off ZWrite Off ZTest Always
 
-		
 		Pass
 		{
-			Stencil{
-
-		Ref 2
-		// ReadMask 2
-		Comp NotEqual
-	}
 
 			CGPROGRAM
 			#pragma vertex vert
@@ -48,13 +40,14 @@
 			}
 			
 			sampler2D _MainTex;
+			sampler2D _SecondRT;
 
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.uv);
+				fixed4 secondCol = tex2D(_SecondRT, i.uv);
 				// just invert the colors
-				col = 1 - col;
-				/*return fixed4(0.0, 1.0, 0.0, 1.0);*/
+				col.rgb = col.rgb + secondCol.rgb;
 				return col;
 			}
 			ENDCG

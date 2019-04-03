@@ -7,11 +7,7 @@ Shader "Unity Shaders Book/Chapter 12/Gaussian Blur" {
 	}
 	SubShader {
 
-		Stencil{
-			Ref 2
-			ReadMask 2
-			Comp NotEqual
-		}
+		
 
 
 		CGINCLUDE
@@ -75,6 +71,12 @@ Shader "Unity Shaders Book/Chapter 12/Gaussian Blur" {
 		ZTest Always Cull Off ZWrite Off
 		
 		Pass {
+			Stencil{
+				Ref 2
+				Comp NotEqual
+				
+			}
+
 			NAME "GAUSSIAN_BLUR_VERTICAL"
 			
 			CGPROGRAM
@@ -86,6 +88,12 @@ Shader "Unity Shaders Book/Chapter 12/Gaussian Blur" {
 		}
 		
 		Pass {  
+			Stencil{
+				Ref 2
+				Comp NotEqual
+				
+			}
+
 			NAME "GAUSSIAN_BLUR_HORIZONTAL"
 			
 			CGPROGRAM  

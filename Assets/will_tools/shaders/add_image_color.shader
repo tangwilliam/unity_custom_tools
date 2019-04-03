@@ -1,4 +1,4 @@
-﻿Shader "Will/simple_color_effect"
+﻿Shader "Will/add_image_color"
 {
 	Properties
 	{
@@ -6,21 +6,11 @@
 	}
 	SubShader
 	{
-		Blend OneMinusDstColor Zero
-
 		// No culling or depth
-		Cull Off  ZWrite Off ZTest Always
+		Cull Off ZWrite Off ZTest Always
 
-		
 		Pass
 		{
-			Stencil{
-
-		Ref 2
-		// ReadMask 2
-		Comp NotEqual
-	}
-
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -53,8 +43,7 @@
 			{
 				fixed4 col = tex2D(_MainTex, i.uv);
 				// just invert the colors
-				col = 1 - col;
-				/*return fixed4(0.0, 1.0, 0.0, 1.0);*/
+				col.rgb = 1 - col.rgb;
 				return col;
 			}
 			ENDCG
