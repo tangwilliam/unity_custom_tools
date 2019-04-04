@@ -25,7 +25,7 @@ public class GaussianBlur : PostEffectsBase
     public float blurSpread = 0.6f;
 
     [Range(1, 8)]
-    public int downSample = 2;
+    public int downSample = 1;
 
     /// 1st edition: just apply blur
     // void OnRenderImage(RenderTexture src, RenderTexture dest) {
@@ -66,7 +66,6 @@ public class GaussianBlur : PostEffectsBase
 
     /// 3rd edition: use iterations for larger blur
 
-    //[ImageEffectOpaque]
     void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
         if (material != null)
@@ -77,7 +76,6 @@ public class GaussianBlur : PostEffectsBase
             RenderTexture buffer0 = RenderTexture.GetTemporary(rtW, rtH, 24);
             buffer0.filterMode = FilterMode.Bilinear;
 
-            //Graphics.SetRenderTarget(buffer0.colorBuffer, src.depthBuffer);
             Graphics.Blit(src, buffer0);
 
             for (int i = 0; i < iterations; i++)
@@ -86,7 +84,10 @@ public class GaussianBlur : PostEffectsBase
 
                 RenderTexture buffer1 = RenderTexture.GetTemporary(rtW, rtH, 24);
 
-                //Graphics.SetRenderTarget(buffer0.colorBuffer, src.depthBuffer);
+                //test
+                //Graphics.SetRenderTarget(buffer1);
+                //GL.Clear(true, true, Color.red);
+
 
                 // Render the vertical pass
                 Graphics.Blit(buffer0, buffer1, material, 0);
@@ -95,7 +96,9 @@ public class GaussianBlur : PostEffectsBase
                 buffer0 = buffer1;
                 buffer1 = RenderTexture.GetTemporary(rtW, rtH, 24);
 
-                //Graphics.SetRenderTarget(buffer0.colorBuffer, src.depthBuffer);
+                //test
+                //Graphics.SetRenderTarget(buffer1);
+                //GL.Clear(true, true, Color.red);
 
                 // Render the horizontal pass
                 Graphics.Blit(buffer0, buffer1, material, 1);
@@ -103,7 +106,6 @@ public class GaussianBlur : PostEffectsBase
                 RenderTexture.ReleaseTemporary(buffer0);
                 buffer0 = buffer1;
             }
-            //Graphics.SetRenderTarget(buffer1.colorBuffer, buffer0.depthBuffer);
 
             Graphics.Blit(buffer0, dest);
             RenderTexture.ReleaseTemporary(buffer0);

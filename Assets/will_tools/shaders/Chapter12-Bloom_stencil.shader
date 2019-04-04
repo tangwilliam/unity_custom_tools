@@ -1,6 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Unity Shaders Book/Chapter 12/Bloom" {
+Shader "Unity Shaders Book/Chapter 12/Bloom_stencil" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_Bloom ("Bloom (RGB)", 2D) = "black" {}
@@ -9,6 +9,8 @@ Shader "Unity Shaders Book/Chapter 12/Bloom" {
 	}
 	SubShader {
 			
+		
+
 
 		CGINCLUDE
 		
@@ -76,6 +78,11 @@ Shader "Unity Shaders Book/Chapter 12/Bloom" {
 		
 		Pass {  
 			
+			Stencil{
+				Ref 2
+				Comp NotEqual
+
+			}
 
 			CGPROGRAM  
 			#pragma vertex vertExtractBright  
@@ -84,9 +91,9 @@ Shader "Unity Shaders Book/Chapter 12/Bloom" {
 			ENDCG  
 		}
 		
-		UsePass "Unity Shaders Book/Chapter 12/Gaussian Blur_no_stencil/GAUSSIAN_BLUR_VERTICAL"
+		UsePass "Unity Shaders Book/Chapter 12/Gaussian Blur_stencil/GAUSSIAN_BLUR_VERTICAL"
 		
-		UsePass "Unity Shaders Book/Chapter 12/Gaussian Blur_no_stencil/GAUSSIAN_BLUR_HORIZONTAL"
+		UsePass "Unity Shaders Book/Chapter 12/Gaussian Blur_stencil/GAUSSIAN_BLUR_HORIZONTAL"
 		
 		Pass {  
 			

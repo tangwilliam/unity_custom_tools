@@ -1508,10 +1508,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c0a8b327910994d9eada4bd0083d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gaussianBlurShader: {fileID: 4800000, guid: 4315a2b650b3846268c38551a47e6554, type: 3}
-  iterations: 3
+  gaussianBlurShader: {fileID: 4800000, guid: d6be0b1dde4caca42932081a7b78ea0a, type: 3}
+  iterations: 2
   blurSpread: 0.6
-  downSample: 2
+  downSample: 1
 --- !u!114 &436321868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3060,7 +3060,6 @@ GameObject:
   - component: {fileID: 1120073134}
   - component: {fileID: 1120073133}
   - component: {fileID: 1120073132}
-  - component: {fileID: 1120073135}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -3104,7 +3103,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 4
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -3120,7 +3119,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 256
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -3131,17 +3130,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1120073135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1120073130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf7d3f1b070d3147afde897c19e8742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1153619059
 Transform:
   m_ObjectHideFlags: 0
@@ -3154,7 +3142,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1495938335}
-  - {fileID: 1344914783}
   m_Father: {fileID: 1497729839}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3467,7 +3454,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1153619059}
-  - component: {fileID: 1227227200}
   m_Layer: 0
   m_Name: firehydrant_01_a_02
   m_TagString: Untagged
@@ -3475,28 +3461,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!205 &1227227200
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 205861106147810750, guid: a657157b650d824469701d48ff0391ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1227227199}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.00000011920929, y: 0.56432074, z: 0.06577447}
-  m_Size: 1.1247922
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LODs:
-  - screenRelativeHeight: 0.016936861
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1495938337}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1344914785}
-  m_Enabled: 1
 --- !u!1 &1262986665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,95 +3807,6 @@ Transform:
   m_Father: {fileID: 1314378110}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1344914782
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1866205118431250, guid: a657157b650d824469701d48ff0391ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1344914783}
-  - component: {fileID: 1344914786}
-  - component: {fileID: 1344914785}
-  - component: {fileID: 1344914784}
-  m_Layer: 0
-  m_Name: firehydrant_01_a_LOD1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1344914783
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4261055413026322, guid: a657157b650d824469701d48ff0391ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1344914782}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -4.5474734e-15, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
-  m_Children: []
-  m_Father: {fileID: 1153619059}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1344914784
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65027837227653140, guid: a657157b650d824469701d48ff0391ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1344914782}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 55.054268, y: 112.479225, z: 50.300205}
-  m_Center: {x: 0, y: 56.43207, z: 6.57745}
---- !u!23 &1344914785
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 23265084498962630, guid: a657157b650d824469701d48ff0391ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1344914782}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 81717ec81559b0245832e7d0e2b3380c, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1344914786
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 33862094111713748, guid: a657157b650d824469701d48ff0391ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1344914782}
-  m_Mesh: {fileID: 4300002, guid: cdfe813cde1068a45a56a561dd2d3fb5, type: 3}
 --- !u!1 &1354370479
 GameObject:
   m_ObjectHideFlags: 0
@@ -4539,7 +4414,7 @@ GameObject:
   - component: {fileID: 1495938338}
   - component: {fileID: 1495938337}
   - component: {fileID: 1495938336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: firehydrant_01_a_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4588,7 +4463,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81717ec81559b0245832e7d0e2b3380c, type: 2}
+  - {fileID: 2100000, guid: 0b424eacb0d033e4a97862e77a86e6fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
