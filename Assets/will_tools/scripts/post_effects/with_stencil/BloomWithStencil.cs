@@ -37,7 +37,7 @@ public class BloomWithStencil : PostEffectsBase {
             PostEffectsUtil.CustomBlit(src, buffer0.colorBuffer, src.depthBuffer, material, 0);
 
             //--------------------- 
-            // 模糊1
+            // 模糊1 （因为一直没有理清楚冯乐乐对于RenderTexture的 ReleaseTemporary操作及生疏了C sharp，所以这里没用for循环）
 
             // set property
             material.SetFloat("_BlurSize", 1.0f + 1 * blurSpread);
